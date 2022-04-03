@@ -13,6 +13,8 @@ public interface UserService {
 
     UserDto findByIdDto(long id);
 
+    List<User> findAllByIdIn(List<Long> user_ids);
+
     User findById(long id);
 
     void save(UserDto user);

@@ -53,4 +53,9 @@ public class PostServiceImpl implements PostService {
     public List<Post> findTitle(String title) {
         return postRepo.findAllByTitle(title);
     }
+
+    @Override
+    public List<Long> findAllByUserCount(int count) {
+        return postRepo.findAllByUserCount(count);
+    }
 }

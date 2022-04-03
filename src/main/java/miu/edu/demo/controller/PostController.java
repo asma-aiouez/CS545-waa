@@ -42,6 +42,7 @@ public class PostController {
         return postService.findTitle(title);
     }
 
+
     /*@GetMapping
     public List<Post> findTitle(@PathVariable("title") String title){
         return postService.findTitle(title);

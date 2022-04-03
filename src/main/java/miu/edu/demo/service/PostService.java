@@ -12,4 +12,5 @@ public interface PostService {
     Post findById(long id);
     List<Post> findPostByUser(long idUser);
     List<Post> findTitle(String title);
+    List<Long> findAllByUserCount(int count);
 }

@@ -54,6 +54,12 @@ public class UserController {
         userService.delete(id);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/count/{count}")
+    public List<User> getUsers(@PathVariable("count") int count){
+        List<Long> user_ids = postService.findAllByUserCount(count);
+        return userService.findAllByIdIn(user_ids);
+    }
 
    /* @GetMapping("/filter/review/{val}")
     public List<User> findProductsReviewMoreThan(@PathVariable("val") int val){

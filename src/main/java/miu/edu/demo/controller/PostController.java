@@ -27,7 +27,7 @@ public class PostController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<Post> getPost(){
+    public List<Post> getPosts(){
         return postService.getAll();
     }
 
@@ -42,9 +42,9 @@ public class PostController {
         return postService.findTitle(title);
     }
 
-   // @GetMapping("/{")
-   // public List<Post> findTitle(@PathVariable("title") String title){
-    //    return postService.findTitle(title);
-  //  }
+    /*@GetMapping
+    public List<Post> findTitle(@PathVariable("title") String title){
+        return postService.findTitle(title);
+    }*/
 
 }

@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "comments")
 public class Comment {
 
 
@@ -20,6 +21,7 @@ public class Comment {
     String name;
 
     @ManyToOne()
+    @JsonBackReference
     @JoinColumn(name="post_id")
     private Post post;
 

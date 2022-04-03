@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "posts")
 public class Post {
 
     @Id
@@ -26,11 +29,12 @@ public class Post {
 
     @ManyToOne()
     @JoinColumn(name="user_id")
+    @JsonBackReference
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.LAZY)
     @JsonManagedReference
-    @JsonBackReference
+    @Fetch(FetchMode.SELECT)
     private List<Comment> comments;
 
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/comments")
+@RequestMapping("/api/v1/users/{userId}/posts/{postId}/comments")
 public class CommentController {
 
     @Autowired
@@ -28,13 +28,13 @@ public class CommentController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{userId}/posts/{postId}/comments")
+    @GetMapping
     public List<Comment> getComments(){
         return commentService.getAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{userId}/posts/{postId}/comments/{commentId}")
+    @GetMapping("/{commentId}")
     public Comment getComment(@PathVariable("commentId") long id){
         return commentService.findById(id);
     }

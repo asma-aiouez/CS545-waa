@@ -1,9 +1,12 @@
-package miu.edu.demo.service;
+package miu.edu.demo.service.Impl;
 
+import miu.edu.demo.domain.Post;
 import miu.edu.demo.domain.User;
 import miu.edu.demo.domain.dto.UserDto;
 import miu.edu.demo.helper.ListMapper;
+import miu.edu.demo.repo.PostRepo;
 import miu.edu.demo.repo.UserRepo;
+import miu.edu.demo.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,13 +16,14 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     ModelMapper modelMapper;
 
     @Autowired
     UserRepo userRepo;
+
 
     @Autowired
     ListMapper<User,UserDto> listMapperUserToDto;
@@ -30,14 +34,25 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDto findById(long id) {
+    public UserDto findByIdDto(long id) {
         return modelMapper.map( userRepo.findById(id) , UserDto.class );
     }
 
     @Override
-    public void save(User p) {
-        userRepo.save(p);
+    public User findById(long id) {
+        return userRepo.findById(id);
     }
+
+    @Override
+    public void save(UserDto p) {
+        userRepo.save(modelMapper.map(p, User.class));
+    }
+
+    @Override
+    public void delete(long id) {
+        userRepo.deleteById(id);
+    }
+
 
     /*@Override
     public List<User> findHaveReviewMoreThan(int n) {

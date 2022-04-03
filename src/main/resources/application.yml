@@ -3,11 +3,11 @@ spring:
     name: demo
   datasource:
     password: 1
-    url: jdbc:postgresql://localhost:5432/spring-data-inclass
+    url: jdbc:postgresql://localhost:5434/spring-data-lab2
     username: postgres
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

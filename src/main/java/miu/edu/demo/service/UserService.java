@@ -1,20 +1,25 @@
 package miu.edu.demo.service;
 
 
+import miu.edu.demo.domain.Post;
 import miu.edu.demo.domain.User;
-import miu.edu.demo.domain.dto.ProductDto;
+import miu.edu.demo.domain.dto.UserDto;
 
 import java.util.List;
 
-public interface ProductService {
+public interface UserService {
 
-    List<ProductDto> findAll();
+    List<UserDto> findAll();
 
-    ProductDto findById(int id);
+    UserDto findByIdDto(long id);
 
-    void save(User p);
+    User findById(long id);
 
-    List<User> findHaveReviewMoreThan(int n);
+    void save(UserDto user);
 
-    List<User> findByPriceGreaterThan(float price);
+    void delete(long id);
+
+    //List<User> findHaveReviewMoreThan(int n);
+
+    //List<User> findByPriceGreaterThan(float price);
 }

@@ -30,4 +30,11 @@ public class User {
     @JsonManagedReference
     @Fetch(FetchMode.SELECT)
     private List<Post> post;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "principle")
+    private List<Logger> logger;
+
+    public static User getLoggedInUser(){
+        return new User(1,"logged in user",null,null);
+    }
 }

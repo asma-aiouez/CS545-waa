@@ -1,6 +1,7 @@
 package miu.edu.demo.controller;
 
 
+import miu.edu.demo.aspect.annotation.ExecutionTime;
 import miu.edu.demo.domain.Post;
 import miu.edu.demo.domain.User;
 import miu.edu.demo.domain.dto.UserDto;
@@ -33,6 +34,7 @@ public class UserController {
         return userService.findByIdDto(id);
     }
 
+    @ExecutionTime
     @GetMapping("/{id}")
     public User getUser(@PathVariable("id") long id){
         return userService.findById(id);

@@ -3,6 +3,7 @@ package miu.edu.demo.controller;
 
 import miu.edu.demo.domain.Post;
 import miu.edu.demo.domain.User;
+import miu.edu.demo.domain.dto.FilterDto;
 import miu.edu.demo.domain.dto.PostDto;
 import miu.edu.demo.domain.dto.UserDto;
 import miu.edu.demo.service.PostService;
@@ -41,6 +42,11 @@ public class PostController {
     public List<Post> findTitle(@PathVariable("title") String title){
         return postService.findTitle(title);
     }
+
+    /*@GetMapping()
+    public List<Post> findTitle1(FilterDto obj){ // "?name=XX&title=YY"
+        return postService.findTitle(obj.getName());
+    }*/
 
 
     /*@GetMapping

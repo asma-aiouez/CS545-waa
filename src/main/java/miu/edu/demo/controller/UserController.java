@@ -24,7 +24,7 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<UserDto> getUser(){
+    public List<UserDto> getUsers(){
         return userService.findAll();
     }
 
@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}/posts")
-    public List<Post> getPost(@PathVariable("id") long idUser){
+    public List<Post> getPosts(@PathVariable("id") long idUser){
         return postService.findPostByUser(idUser);
     }
 
@@ -54,12 +54,20 @@ public class UserController {
         userService.delete(id);
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    /*@ResponseStatus(HttpStatus.OK)
     @GetMapping("/count/{count}")
-    public List<User> getUsers(@PathVariable("count") int count){
+    public List<User> getUsers(@PathVariable int count){
         List<Long> user_ids = postService.findAllByUserCount(count);
         return userService.findAllByIdIn(user_ids);
+    }*/
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/count/{count}")
+    public List<User> getUsers(@PathVariable int count){
+        return userService.findUsersWithGivenNumberOfPosts(count);
     }
+
+
 
    /* @GetMapping("/filter/review/{val}")
     public List<User> findProductsReviewMoreThan(@PathVariable("val") int val){

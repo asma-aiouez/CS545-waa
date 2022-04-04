@@ -32,7 +32,6 @@ public class CommentServiceImpl implements CommentService {
     public void save(CommentDto c) {
 
         Post p = postRepo.findById(c.getIdPost());
-        List<Comment> comments= new ArrayList<>();
         Comment comment = new Comment(c.getName());
         comment.setPost(p);
         //comments.add(comment);

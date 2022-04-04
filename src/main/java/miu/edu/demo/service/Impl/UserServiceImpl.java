@@ -58,6 +58,11 @@ public class UserServiceImpl implements UserService {
         userRepo.deleteById(id);
     }
 
+    @Override
+    public List<User> findUsersWithGivenNumberOfPosts(int count) {
+        return userRepo.findUsersWithGivenNumberOfPosts(count);
+    }
+
 
     /*@Override
     public List<User> findHaveReviewMoreThan(int n) {

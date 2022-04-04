@@ -22,4 +22,6 @@ public interface PostRepo extends CrudRepository<Post,Integer> {
     @Query(value = "SELECT user_id FROM posts GROUP BY user_id HAVING COUNT(user_id) > :count", nativeQuery = true)
     List<Long> findAllByUserCount(int count);
 
+
+
 }

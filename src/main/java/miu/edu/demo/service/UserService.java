@@ -21,6 +21,8 @@ public interface UserService {
 
     void delete(long id);
 
+    List<User> findUsersWithGivenNumberOfPosts(int count);
+
     //List<User> findHaveReviewMoreThan(int n);
 
     //List<User> findByPriceGreaterThan(float price);

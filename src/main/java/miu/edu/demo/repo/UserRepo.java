@@ -14,4 +14,7 @@ public interface UserRepo extends CrudRepository<User,Long> {
     List<User> findAll();
     User findById(long id);
     List<User> findAllByIdIn(List<Long> user_ids);
+
+    @Query("select u from User u where u.post.size > :count") // JBQL query
+    List<User> findUsersWithGivenNumberOfPosts(int count);
 }

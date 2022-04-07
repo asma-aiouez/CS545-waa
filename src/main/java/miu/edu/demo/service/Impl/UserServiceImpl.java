@@ -1,10 +1,8 @@
 package miu.edu.demo.service.Impl;
 
-import miu.edu.demo.domain.Post;
 import miu.edu.demo.domain.User;
 import miu.edu.demo.domain.dto.UserDto;
-import miu.edu.demo.helper.ListMapper;
-import miu.edu.demo.repo.PostRepo;
+import miu.edu.demo.util.ListMapper;
 import miu.edu.demo.repo.UserRepo;
 import miu.edu.demo.service.UserService;
 import org.modelmapper.ModelMapper;

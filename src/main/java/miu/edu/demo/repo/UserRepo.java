@@ -17,4 +17,6 @@ public interface UserRepo extends CrudRepository<User,Long> {
 
     @Query("select u from User u where u.post.size > :count") // JBQL query
     List<User> findUsersWithGivenNumberOfPosts(int count);
+
+    User findByEmail(String username);
 }

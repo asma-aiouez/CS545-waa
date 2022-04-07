@@ -24,11 +24,12 @@ public class PostServiceImpl implements PostService {
     UserRepo userRepo;
 
     @Override
-    public void save(PostDto dto) {
+    public void save(PostDto dto, String email) {
         Post p = new Post();
         p.setTitle(dto.getTitle());
         p.setContent(dto.getContent());
-        var user = userRepo.findById(dto.getIdUser());
+
+        var user = userRepo.findByEmail(email);
         p.setUser(user);
         postRepo.save(p);
     }

@@ -12,18 +12,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/users/{userId}/posts/")
+@RequestMapping("/api/v1/posts")
 public class PostController {
 
     @Autowired
     PostService postService;
 
     @PostMapping
-    public void savePost(@RequestBody PostDto p){
-        postService.save(p);
+    public void savePost(@RequestBody PostDto p, Principal principal){
+        postService.save(p, principal.getName());
     }
 
     @ResponseStatus(HttpStatus.OK)

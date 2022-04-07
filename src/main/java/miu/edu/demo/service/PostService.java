@@ -7,7 +7,7 @@ import miu.edu.demo.domain.dto.PostDto;
 import java.util.List;
 
 public interface PostService {
-    void save(PostDto p);
+    void save(PostDto p, String email);
     List<Post> getAll();
     Post findById(long id);
     List<Post> findPostByUser(long idUser);

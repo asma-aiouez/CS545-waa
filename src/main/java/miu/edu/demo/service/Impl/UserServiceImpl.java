@@ -48,6 +48,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(UserDto p) {
+
+        System.out.println("INSIDE SERVICE");
         userRepo.save(modelMapper.map(p, User.class));
     }
 
